@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/app_links.dart';
 import '../../../core/error_view.dart';
 import '../../../l10n/app_localizations.dart';
 import '../domain/innings_state.dart';
@@ -11,15 +12,23 @@ import 'match_controller.dart';
 import 'scoreboard.dart';
 import 'share_actions.dart';
 
-class ScorecardScreen extends ConsumerWidget {
+class ScorecardScreen extends ConsumerStatefulWidget {
   const ScorecardScreen({required this.matchId, super.key});
 
   final String matchId;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ScorecardScreen> createState() => _ScorecardScreenState();
+}
+
+class _ScorecardScreenState extends ConsumerState<ScorecardScreen> {
+  /// Wraps the scorecard so it can be shared as an image.
+  final _imageKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final match = ref.watch(matchControllerProvider(matchId));
+    final match = ref.watch(matchControllerProvider(widget.matchId));
     final loaded = match.value;
     return Scaffold(
       appBar: AppBar(
@@ -33,6 +42,13 @@ class ScorecardScreen extends ConsumerWidget {
               icon: const Icon(Icons.copy_outlined),
             ),
             IconButton(
+              key: const Key('shareImage'),
+              tooltip: l10n.shareImage,
+              onPressed: () =>
+                  shareScorecardImage(context, ref, loaded, _imageKey),
+              icon: const Icon(Icons.image_outlined),
+            ),
+            IconButton(
               key: const Key('shareText'),
               tooltip: l10n.shareText,
               onPressed: () => shareScorecardText(context, ref, loaded),
@@ -43,11 +59,21 @@ class ScorecardScreen extends ConsumerWidget {
       ),
       body: switch (match) {
         AsyncData(:final value) => SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 720),
-              child: ScorecardView(match: value),
+              child: RepaintBoundary(
+                key: _imageKey,
+                // An opaque background, so the shared image isn't
+                // see-through.
+                child: ColoredBox(
+                  color: Theme.of(context).colorScheme.surface,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: ScorecardView(match: value),
+                  ),
+                ),
+              ),
             ),
           ),
         ),
@@ -92,6 +118,13 @@ class ScorecardView extends StatelessWidget {
           _InningsCard(match: match, innings: innings),
           const SizedBox(height: 16),
         ],
+        Text(
+          l10n.shareFooter(appUrl),
+          textAlign: TextAlign.center,
+          style: text.bodySmall?.copyWith(
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
+          ),
+        ),
       ],
     );
   }

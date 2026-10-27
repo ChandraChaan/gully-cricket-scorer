@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -51,11 +53,21 @@ class FakeMatchRepository implements MatchRepository {
 class FakeSharer implements Sharer {
   final shared = <String>[];
   final copied = <String>[];
+  final images = <(Uint8List, String)>[];
   ShareOutcome outcome = ShareOutcome.shared;
 
   @override
   Future<ShareOutcome> shareText(String text, {String? subject}) async {
     shared.add(text);
+    return outcome;
+  }
+
+  @override
+  Future<ShareOutcome> shareImage(
+    Uint8List png, {
+    required String fileName,
+  }) async {
+    images.add((png, fileName));
     return outcome;
   }
 

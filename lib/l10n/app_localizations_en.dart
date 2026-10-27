@@ -541,6 +541,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get copied => 'Scorecard copied. Paste it into any chat.';
 
   @override
+  String get shareImage => 'Share as image';
+
+  @override
+  String get shareImageFailed => 'Couldn\'t create the scorecard image.';
+
+  @override
   String get shareFailed => 'Couldn\'t share the scorecard.';
 
   @override
