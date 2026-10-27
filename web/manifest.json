@@ -1,0 +1,20 @@
+{
+  "name": "Gully Cricket Scorer",
+  "short_name": "Gully Scorer",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#14592F",
+  "theme_color": "#1E7A46",
+  "description": "Ball-by-ball cricket scorer for street, school and weekend matches. Works offline; matches stay on your device.",
+  "orientation": "portrait-primary",
+  "categories": ["sports", "utilities"],
+  "prefer_related_applications": false,
+  "icons": [
+    {"src": "icons/Icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/Icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icons/Icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"},
+    {"src": "icons/Icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
