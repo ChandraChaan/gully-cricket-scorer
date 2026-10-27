@@ -185,6 +185,8 @@
   "shareText": "Share as text",
   "copyText": "Copy as text",
   "copied": "Scorecard copied. Paste it into any chat.",
+  "shareImage": "Share as image",
+  "shareImageFailed": "Couldn't create the scorecard image.",
   "shareFailed": "Couldn't share the scorecard.",
   "shareUnavailable": "Sharing isn't available here, so the scorecard was copied instead."
 }

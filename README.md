@@ -64,6 +64,8 @@ may or may not be worth a run.
 - Bowling: O, M, R, W, Econ
 - Extras, total, did not bat, fall of wickets, over-by-over summary
 - Share as WhatsApp-friendly text, or copy it
+- Share as an image: the whole scorecard as one tall PNG, ready for a
+  group chat (browsers without file sharing download it instead)
 
 **Everywhere**
 - Matches are saved after every ball, with a history list

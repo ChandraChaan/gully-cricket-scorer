@@ -14,6 +14,10 @@ abstract interface class Sharer {
   Future<ShareOutcome> shareText(String text, {String? subject});
 
   Future<ShareOutcome> copyText(String text);
+
+  /// Shares a PNG through the share sheet. Browsers without file sharing
+  /// download it instead.
+  Future<ShareOutcome> shareImage(Uint8List png, {required String fileName});
 }
 
 final class SystemSharer implements Sharer {
@@ -37,6 +41,30 @@ final class SystemSharer implements Sharer {
     }
     final copied = await copyText(text);
     return copied == ShareOutcome.failed ? copied : ShareOutcome.copied;
+  }
+
+  @override
+  Future<ShareOutcome> shareImage(
+    Uint8List png, {
+    required String fileName,
+  }) async {
+    try {
+      await SharePlus.instance.share(
+        ShareParams(
+          files: [XFile.fromData(png, mimeType: 'image/png', name: fileName)],
+          fileNameOverrides: [fileName],
+        ),
+      );
+      return ShareOutcome.shared;
+    } catch (error, stackTrace) {
+      developer.log(
+        'Could not share the image',
+        name: 'Sharer',
+        error: error,
+        stackTrace: stackTrace,
+      );
+      return ShareOutcome.failed;
+    }
   }
 
   @override

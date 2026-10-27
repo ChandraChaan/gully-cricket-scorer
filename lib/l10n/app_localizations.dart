@@ -946,6 +946,18 @@ abstract class AppLocalizations {
   /// **'Scorecard copied. Paste it into any chat.'**
   String get copied;
 
+  /// No description provided for @shareImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Share as image'**
+  String get shareImage;
+
+  /// No description provided for @shareImageFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t create the scorecard image.'**
+  String get shareImageFailed;
+
   /// No description provided for @shareFailed.
   ///
   /// In en, this message translates to:

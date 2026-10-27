@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gully_cricket_scorer/core/sharer.dart';
@@ -146,6 +148,39 @@ void main() {
       expect(text, contains('*Lions innings*: 11/1 (1 ov)'));
       expect(text, contains('Lion 1 4 (2), b Tiger 1'));
       expect(text, contains('Lion 3 6 (4), not out'));
+    });
+
+    testWidgets('shares the whole scorecard as a PNG image', (tester) async {
+      final sharer = FakeSharer();
+      await pumpApp(
+        tester,
+        repository: FakeMatchRepository([
+          savedMatch(testSetup(), finishedEvents),
+        ]),
+        sharer: sharer,
+        location: '/match/m1/scorecard',
+      );
+
+      await tester.tap(find.byKey(const Key('shareImage')));
+      // Encoding the image needs real time, not the test clock.
+      await tester.runAsync(() async {
+        for (var i = 0; i < 50 && sharer.images.isEmpty; i++) {
+          await Future<void>.delayed(const Duration(milliseconds: 100));
+        }
+      });
+      await tester.pump();
+
+      final (png, fileName) = sharer.images.single;
+      expect(fileName, 'scorecard-m1.png');
+      expect(png.sublist(1, 4), 'PNG'.codeUnits);
+      final view = tester.view;
+      final screenHeight = view.physicalSize.height / view.devicePixelRatio;
+      final imageHeight = ByteData.sublistView(png).getUint32(20) / 2;
+      expect(
+        imageHeight,
+        greaterThan(screenHeight),
+        reason: 'the part scrolled out of view is included',
+      );
     });
 
     testWidgets('copies when there is no share sheet', (tester) async {
