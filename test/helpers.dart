@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,10 @@ import 'package:gully_cricket_scorer/app.dart';
 import 'package:gully_cricket_scorer/core/clock.dart';
 import 'package:gully_cricket_scorer/core/router.dart';
 import 'package:gully_cricket_scorer/core/sharer.dart';
+import 'package:gully_cricket_scorer/features/games/data/prefs_best_scores_repository.dart';
+import 'package:gully_cricket_scorer/features/games/domain/arcade_game.dart';
+import 'package:gully_cricket_scorer/features/games/domain/best_scores_repository.dart';
+import 'package:gully_cricket_scorer/features/games/presentation/best_scores_controller.dart';
 import 'package:gully_cricket_scorer/features/match/data/prefs_match_repository.dart';
 import 'package:gully_cricket_scorer/features/match/domain/match_event.dart';
 import 'package:gully_cricket_scorer/features/match/domain/match_repository.dart';
@@ -47,6 +52,26 @@ class FakeMatchRepository implements MatchRepository {
   Future<void> delete(String id) async {
     if (failWith case final error?) throw error;
     _matches.remove(id);
+  }
+}
+
+class FakeBestScoresRepository implements BestScoresRepository {
+  FakeBestScoresRepository([Map<GameId, int> initial = const {}])
+    : scores = {...initial};
+
+  final Map<GameId, int> scores;
+  Object? failWith;
+
+  @override
+  Future<Map<GameId, int>> fetchAll() async {
+    if (failWith case final error?) throw error;
+    return {...scores};
+  }
+
+  @override
+  Future<void> save(GameId game, int score) async {
+    if (failWith case final error?) throw error;
+    scores[game] = score;
   }
 }
 
@@ -112,6 +137,7 @@ Future<ProviderContainer> pumpApp(
   WidgetTester tester, {
   FakeMatchRepository? repository,
   FakeSharer? sharer,
+  FakeBestScoresRepository? bestScores,
   String? location,
 }) async {
   tester.view
@@ -125,10 +151,15 @@ Future<ProviderContainer> pumpApp(
         repository ?? FakeMatchRepository(),
       ),
       sharerProvider.overrideWithValue(sharer ?? FakeSharer()),
+      bestScoresRepositoryProvider.overrideWithValue(
+        bestScores ?? FakeBestScoresRepository(),
+      ),
+      gameRandomProvider.overrideWithValue(math.Random(7)),
       clockProvider.overrideWithValue(() => DateTime.utc(2026, 10, 27, 8)),
     ],
   );
-  if (location != null) container.read(routerProvider).go(location);
+  // Most tests are about the scorer, so that is where they start.
+  container.read(routerProvider).go(location ?? '/scorer');
   await tester.pumpWidget(
     UncontrolledProviderScope(
       container: container,

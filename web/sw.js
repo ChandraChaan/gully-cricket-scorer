@@ -1,4 +1,4 @@
-// Offline support for Gully Cricket Scorer.
+// Offline support for Gully Games.
 //
 // Network first, so a new version shows up as soon as you are online, and
 // the cache as a fallback, so the app opens and scores with no signal.

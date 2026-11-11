@@ -97,13 +97,13 @@ abstract class AppLocalizations {
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
-  /// **'Gully Cricket Scorer'**
+  /// **'Gully Games'**
   String get appTitle;
 
   /// No description provided for @shareFooter.
   ///
   /// In en, this message translates to:
-  /// **'Scored with Gully Cricket Scorer: {url}'**
+  /// **'Scored with Gully Games: {url}'**
   String shareFooter(String url);
 
   /// No description provided for @historyTitle.
@@ -969,6 +969,516 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sharing isn\'t available here, so the scorecard was copied instead.'**
   String get shareUnavailable;
+
+  /// No description provided for @gamesIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick games from the gully and the maidan. Best scores stay on this device.'**
+  String get gamesIntro;
+
+  /// No description provided for @gamesBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to games'**
+  String get gamesBack;
+
+  /// No description provided for @games3d.
+  ///
+  /// In en, this message translates to:
+  /// **'3D'**
+  String get games3d;
+
+  /// No description provided for @games2d.
+  ///
+  /// In en, this message translates to:
+  /// **'2D'**
+  String get games2d;
+
+  /// No description provided for @gameStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get gameStart;
+
+  /// No description provided for @gamePause.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause'**
+  String get gamePause;
+
+  /// No description provided for @gamePaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Paused'**
+  String get gamePaused;
+
+  /// No description provided for @gameResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume'**
+  String get gameResume;
+
+  /// No description provided for @gameOver.
+  ///
+  /// In en, this message translates to:
+  /// **'Game over'**
+  String get gameOver;
+
+  /// No description provided for @gamePlayAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Play again'**
+  String get gamePlayAgain;
+
+  /// No description provided for @gameNewBest.
+  ///
+  /// In en, this message translates to:
+  /// **'New best score!'**
+  String get gameNewBest;
+
+  /// No description provided for @gameScore.
+  ///
+  /// In en, this message translates to:
+  /// **'{score}'**
+  String gameScore(int score);
+
+  /// No description provided for @gameBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best: {score}'**
+  String gameBest(int score);
+
+  /// No description provided for @gameLives.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No lives left} =1{1 life left} other{{count} lives left}}'**
+  String gameLives(int count);
+
+  /// No description provided for @gameBattingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gully Batting'**
+  String get gameBattingTitle;
+
+  /// No description provided for @gameBattingBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Time your swing and clear the rooftops. Three wickets and you\'re out.'**
+  String get gameBattingBlurb;
+
+  /// No description provided for @gameBattingHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Hit Leg, Straight or Off just as the ball reaches the bat. Perfect timing is a six. Miss a straight one and you\'re bowled. The bowler gets quicker every over.'**
+  String get gameBattingHowTo;
+
+  /// No description provided for @gameBattingLeg.
+  ///
+  /// In en, this message translates to:
+  /// **'Leg'**
+  String get gameBattingLeg;
+
+  /// No description provided for @gameBattingStraight.
+  ///
+  /// In en, this message translates to:
+  /// **'Straight'**
+  String get gameBattingStraight;
+
+  /// No description provided for @gameBattingOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get gameBattingOff;
+
+  /// No description provided for @gameBattingSix.
+  ///
+  /// In en, this message translates to:
+  /// **'SIX!'**
+  String get gameBattingSix;
+
+  /// No description provided for @gameBattingFour.
+  ///
+  /// In en, this message translates to:
+  /// **'FOUR!'**
+  String get gameBattingFour;
+
+  /// No description provided for @gameBattingRuns.
+  ///
+  /// In en, this message translates to:
+  /// **'{runs, plural, =1{1 run} other{{runs} runs}}'**
+  String gameBattingRuns(int runs);
+
+  /// No description provided for @gameBattingDot.
+  ///
+  /// In en, this message translates to:
+  /// **'Dot ball'**
+  String get gameBattingDot;
+
+  /// No description provided for @gameBattingBowled.
+  ///
+  /// In en, this message translates to:
+  /// **'Bowled!'**
+  String get gameBattingBowled;
+
+  /// No description provided for @gameBattingCaught.
+  ///
+  /// In en, this message translates to:
+  /// **'Caught!'**
+  String get gameBattingCaught;
+
+  /// No description provided for @gameCatchingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'High Catch'**
+  String get gameCatchingTitle;
+
+  /// No description provided for @gameCatchingBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Get under the skier before it lands. Drop three and it\'s over.'**
+  String get gameCatchingBlurb;
+
+  /// No description provided for @gameCatchingHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Touch or drag where the fielder should run. The red spot shows where the ball will land and the yellow ring closes in as it drops. Catch it dead centre for double points.'**
+  String get gameCatchingHowTo;
+
+  /// No description provided for @gameCatchingCaught.
+  ///
+  /// In en, this message translates to:
+  /// **'Caught!'**
+  String get gameCatchingCaught;
+
+  /// No description provided for @gameCatchingPerfect.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfect catch!'**
+  String get gameCatchingPerfect;
+
+  /// No description provided for @gameCatchingDropped.
+  ///
+  /// In en, this message translates to:
+  /// **'Dropped'**
+  String get gameCatchingDropped;
+
+  /// No description provided for @gameDirectHitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Direct Hit'**
+  String get gameDirectHitTitle;
+
+  /// No description provided for @gameDirectHitBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Throw down the stumps before the runner gets home.'**
+  String get gameDirectHitBlurb;
+
+  /// No description provided for @gameDirectHitHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag up to set the power and sideways to aim, then let go to throw. The dots show the ball\'s path. Hit the stumps before the runner makes the crease; hitting on the full scores double. Three runs conceded ends it.'**
+  String get gameDirectHitHowTo;
+
+  /// No description provided for @gameDirectHitOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Run out!'**
+  String get gameDirectHitOut;
+
+  /// No description provided for @gameDirectHitFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Direct hit!'**
+  String get gameDirectHitFull;
+
+  /// No description provided for @gameDirectHitSafe.
+  ///
+  /// In en, this message translates to:
+  /// **'Safe'**
+  String get gameDirectHitSafe;
+
+  /// No description provided for @gameDirectHitRunner.
+  ///
+  /// In en, this message translates to:
+  /// **'Runner'**
+  String get gameDirectHitRunner;
+
+  /// No description provided for @gameDashTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gully Dash'**
+  String get gameDashTitle;
+
+  /// No description provided for @gameDashBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Sprint to the match, dodging scooters, cows and potholes.'**
+  String get gameDashBlurb;
+
+  /// No description provided for @gameDashHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the left or right side of the screen to change lanes. Dodge everything in the way, grab cricket balls for bonus points, and keep going as the pace picks up. Three bumps and you\'re out.'**
+  String get gameDashHowTo;
+
+  /// No description provided for @homeCricket.
+  ///
+  /// In en, this message translates to:
+  /// **'Cricket'**
+  String get homeCricket;
+
+  /// No description provided for @homeStreet.
+  ///
+  /// In en, this message translates to:
+  /// **'Street games'**
+  String get homeStreet;
+
+  /// No description provided for @homeScorerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cricket scorer'**
+  String get homeScorerTitle;
+
+  /// No description provided for @homeScorerBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Score a real match ball by ball, with a scorecard to share.'**
+  String get homeScorerBlurb;
+
+  /// No description provided for @scorerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cricket scorer'**
+  String get scorerTitle;
+
+  /// No description provided for @gameDuelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Akhada Duel'**
+  String get gameDuelTitle;
+
+  /// No description provided for @gameDuelBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'One-on-one bouts in the mud pit. Punch, kick, block.'**
+  String get gameDuelBlurb;
+
+  /// No description provided for @gameDuelHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Use the arrows to step in and out. Punch is quick, Kick reaches further and hits harder, and holding Block soaks up most of a hit. Beat each wrestler to meet a tougher one. Get knocked down three times and it\'s over.'**
+  String get gameDuelHowTo;
+
+  /// No description provided for @gameDuelYou.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get gameDuelYou;
+
+  /// No description provided for @gameDuelOpponent.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrestler {number}'**
+  String gameDuelOpponent(int number);
+
+  /// No description provided for @gameDuelBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get gameDuelBack;
+
+  /// No description provided for @gameDuelForward.
+  ///
+  /// In en, this message translates to:
+  /// **'In'**
+  String get gameDuelForward;
+
+  /// No description provided for @gameDuelBlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Block'**
+  String get gameDuelBlock;
+
+  /// No description provided for @gameDuelPunch.
+  ///
+  /// In en, this message translates to:
+  /// **'Punch'**
+  String get gameDuelPunch;
+
+  /// No description provided for @gameDuelKick.
+  ///
+  /// In en, this message translates to:
+  /// **'Kick'**
+  String get gameDuelKick;
+
+  /// No description provided for @gameDuelKnockout.
+  ///
+  /// In en, this message translates to:
+  /// **'Knockout!'**
+  String get gameDuelKnockout;
+
+  /// No description provided for @gameDuelDown.
+  ///
+  /// In en, this message translates to:
+  /// **'Knocked down'**
+  String get gameDuelDown;
+
+  /// No description provided for @gameKabaddiTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Kabaddi Raid'**
+  String get gameKabaddiTitle;
+
+  /// No description provided for @gameKabaddiBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Cross the line, tag a defender and get home in time.'**
+  String get gameKabaddiBlurb;
+
+  /// No description provided for @gameKabaddiHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Touch where the raider should run. Defenders on their feet will catch you, so tempt one into diving (they crouch and glow first), dodge, then touch them while they\'re down. Tags only count once you\'re back over the line. Get caught or run out of time three times and it\'s over.'**
+  String get gameKabaddiHowTo;
+
+  /// No description provided for @gameKabaddiClock.
+  ///
+  /// In en, this message translates to:
+  /// **'Raid time'**
+  String get gameKabaddiClock;
+
+  /// No description provided for @gameKabaddiTags.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No tags yet} =1{1 tag: get home!} other{{count} tags: get home!}}'**
+  String gameKabaddiTags(int count);
+
+  /// No description provided for @gameKabaddiScored.
+  ///
+  /// In en, this message translates to:
+  /// **'{points, plural, =1{+1 point} other{+{points} points}}'**
+  String gameKabaddiScored(int points);
+
+  /// No description provided for @gameKabaddiCaught.
+  ///
+  /// In en, this message translates to:
+  /// **'Caught!'**
+  String get gameKabaddiCaught;
+
+  /// No description provided for @gameKabaddiTimeUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Time up'**
+  String get gameKabaddiTimeUp;
+
+  /// No description provided for @gameGilliTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gilli Danda'**
+  String get gameGilliTitle;
+
+  /// No description provided for @gameGilliBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Flick the gilli up and whack it down the lane.'**
+  String get gameGilliBlurb;
+
+  /// No description provided for @gameGilliHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap once to flick the gilli into the air. Tap again as it passes through the frame to hit it: the closer to the middle, the further it flies. Your score is the total distance. Miss three and it\'s over.'**
+  String get gameGilliHowTo;
+
+  /// No description provided for @gameGilliTap.
+  ///
+  /// In en, this message translates to:
+  /// **'Flick or hit'**
+  String get gameGilliTap;
+
+  /// No description provided for @gameGilliFlick.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to flick'**
+  String get gameGilliFlick;
+
+  /// No description provided for @gameGilliSwing.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to hit!'**
+  String get gameGilliSwing;
+
+  /// No description provided for @gameGilliPerfect.
+  ///
+  /// In en, this message translates to:
+  /// **'Perfect! {metres} m'**
+  String gameGilliPerfect(int metres);
+
+  /// No description provided for @gameGilliDistance.
+  ///
+  /// In en, this message translates to:
+  /// **'{metres} m'**
+  String gameGilliDistance(int metres);
+
+  /// No description provided for @gameGilliMiss.
+  ///
+  /// In en, this message translates to:
+  /// **'Missed'**
+  String get gameGilliMiss;
+
+  /// No description provided for @gameKiteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Kite Fight'**
+  String get gameKiteTitle;
+
+  /// No description provided for @gameKiteBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Cut the other kites\' strings before they cut yours.'**
+  String get gameKiteBlurb;
+
+  /// No description provided for @gameKiteHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag to fly your blue kite. Sweep your string quickly across a rival\'s string to cut it: the faster kite wins. A rival that wobbles is about to swoop at your string, so keep moving. Lose three kites and it\'s over.'**
+  String get gameKiteHowTo;
+
+  /// No description provided for @gameCarromTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Carrom Strike'**
+  String get gameCarromTitle;
+
+  /// No description provided for @gameCarromBlurb.
+  ///
+  /// In en, this message translates to:
+  /// **'Pocket the coins before the clock runs out.'**
+  String get gameCarromBlurb;
+
+  /// No description provided for @gameCarromHowTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Touch the board to place the striker, pull back to aim and let go to shoot. Black is 1, white is 2 and the red queen is 5, and every coin adds 3 seconds. Sinking the striker is a foul: three fouls end the game.'**
+  String get gameCarromHowTo;
+
+  /// No description provided for @gameCarromClock.
+  ///
+  /// In en, this message translates to:
+  /// **'Time left'**
+  String get gameCarromClock;
+
+  /// No description provided for @gameCarromSeconds.
+  ///
+  /// In en, this message translates to:
+  /// **'{seconds} s'**
+  String gameCarromSeconds(int seconds);
+
+  /// No description provided for @gameCarromFoul.
+  ///
+  /// In en, this message translates to:
+  /// **'Foul!'**
+  String get gameCarromFoul;
 }
 
 class _AppLocalizationsDelegate

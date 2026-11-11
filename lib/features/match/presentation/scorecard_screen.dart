@@ -81,7 +81,7 @@ class _ScorecardScreenState extends ConsumerState<ScorecardScreen> {
           message: error is MatchNotFoundException
               ? l10n.matchNotFound
               : l10n.matchLoadError,
-          onBack: () => context.go('/'),
+          onBack: () => context.go('/scorer'),
         ),
         _ => const Center(child: CircularProgressIndicator()),
       },

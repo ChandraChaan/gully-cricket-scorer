@@ -99,7 +99,7 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
       ).showSnackBar(SnackBar(content: Text(l10n.storageError)));
       return;
     }
-    context.go('/match/$id');
+    context.go('/scorer/match/$id');
   }
 
   String? _validateRange(String? value, int min, int max, String message) {

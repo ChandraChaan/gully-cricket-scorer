@@ -33,7 +33,7 @@ class ScoringScreen extends ConsumerWidget {
           onRetry: error is MatchNotFoundException
               ? null
               : () => ref.invalidate(matchControllerProvider(matchId)),
-          onBack: () => context.go('/'),
+          onBack: () => context.go('/scorer'),
         ),
       ),
       _ => const Scaffold(body: Center(child: CircularProgressIndicator())),
@@ -70,7 +70,7 @@ class _ScoringView extends ConsumerWidget {
       }
     }
 
-    void openScorecard() => context.go('/match/${setup.id}/scorecard');
+    void openScorecard() => context.go('/scorer/match/${setup.id}/scorecard');
 
     final panel = switch (next) {
       ChooseOpeners() => OpenersPanel(
