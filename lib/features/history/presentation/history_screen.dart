@@ -17,10 +17,10 @@ class HistoryScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final matches = ref.watch(savedMatchesProvider);
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.appTitle)),
+      appBar: AppBar(title: Text(l10n.scorerTitle)),
       floatingActionButton: FloatingActionButton.extended(
         key: const Key('newMatch'),
-        onPressed: () => context.go('/new'),
+        onPressed: () => context.go('/scorer/new'),
         icon: const Icon(Icons.add),
         label: Text(l10n.newMatch),
       ),
@@ -137,7 +137,7 @@ class _MatchTile extends ConsumerWidget {
           [status, if (scores.isNotEmpty) scores, date].join('\n'),
         ),
         isThreeLine: true,
-        onTap: () => context.go('/match/${setup.id}'),
+        onTap: () => context.go('/scorer/match/${setup.id}'),
         trailing: IconButton(
           tooltip: l10n.deleteMatch,
           onPressed: () => _delete(context, ref),

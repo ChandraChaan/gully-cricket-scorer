@@ -2,11 +2,11 @@
   <img src="doc/icon.png" width="96" alt="">
 </p>
 
-<h1 align="center">Gully Cricket Scorer</h1>
+<h1 align="center">Gully Games</h1>
 
 <p align="center">
-  Ball-by-ball scoring for street, school and weekend cricket.<br>
-  Free, open source, works offline, and your matches never leave your phone.
+  Street games from the gully and the maidan, plus ball-by-ball scoring for real cricket.<br>
+  Free, open source, works offline, and nothing leaves your phone.
 </p>
 
 <p align="center">
@@ -39,6 +39,10 @@ may or may not be worth a run.
 
 ## Features
 
+The app opens on a hub: the games, and the cricket scorer. The scorer is the
+original heart of the project (it started life as Gully Cricket Scorer) and
+works exactly as before.
+
 **Match setup**
 - Two teams, any number of overs, 2 to 30 players a side
 - Optional player names (one per line); blanks become "Player 1", "Player 2"…
@@ -66,6 +70,26 @@ may or may not be worth a run.
 - Share as WhatsApp-friendly text, or copy it
 - Share as an image: the whole scorecard as one tall PNG, ready for a
   group chat (browsers without file sharing download it instead)
+
+**Games**
+
+Nine quick action games, each with a best score kept on your device.
+
+- **Akhada Duel** (3D): one-on-one bouts in a mud wrestling pit. Punch, kick
+  and block through tougher and tougher opponents.
+- **Kabaddi Raid** (3D): cross the line, draw a dive, tag the defender and
+  get home before the clock runs out.
+- **Gilli Danda** (3D): flick the gilli up and hit it as it crosses the
+  stick. Distance is your score.
+- **Kite Fight** (2D): cut rival kites' strings before they cut yours.
+- **Carrom Strike** (2D): pocket coins against the clock.
+- **Gully Dash** (2D): sprint down a three-lane gully dodging scooters, cows
+  and potholes.
+- **Gully Batting** (3D): time your swing as the ball arrives. Perfect timing
+  is a six, a miss on a straight one and you're bowled.
+- **High Catch** (3D): run the fielder under a skied ball before it lands.
+- **Direct Hit** (3D): drag to aim, let go to throw, and hit the stumps
+  before the runner makes the crease.
 
 **Everywhere**
 - Matches are saved after every ball, with a history list
@@ -102,6 +126,15 @@ own suite of unit tests covering extras, strike changes, maidens, free hits,
 last man stands, run outs at either end, early chase finishes, ties and super
 overs.
 
+The mini games are built the same way: each game's rules and physics are a
+plain Dart class in [`lib/features/games/domain`](lib/features/games/domain)
+that is stepped once a frame and unit tested without a screen. The 3D games
+are drawn by a small renderer in
+[`engine3d`](lib/features/games/presentation/engine3d) (perspective camera,
+flat-shaded triangles, back-to-front sorting) on a plain Flutter canvas, so
+they need no game engine or extra packages and run the same on the web and
+Android.
+
 The app around it follows the rules in
 [flutter-agent-skills](https://github.com/ChandraChaan/flutter-agent-skills):
 Riverpod 3, go_router, feature-first folders, strict analysis and
@@ -116,6 +149,10 @@ lib/
       data/             shared_preferences storage
       presentation/     scoring screen, scorecard, controllers
     setup/              new match form
+    games/
+      domain/           pure-Dart rules and physics for each mini game
+      data/             best scores in shared_preferences
+      presentation/     game screens and a small 3D renderer (engine3d/)
     history/            saved matches
   l10n/                 strings (app_en.arb)
 ```
